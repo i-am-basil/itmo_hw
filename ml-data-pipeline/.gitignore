@@ -1,0 +1,34 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Data (raw/processed — often large or sensitive)
+data/raw/
+data/processed/
+data/labeled/
+data/al/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environment variables
+.env
+
+# Reports (generated)
+reports/
+
+# macOS
+.DS_Store
+
+# Models
+models/

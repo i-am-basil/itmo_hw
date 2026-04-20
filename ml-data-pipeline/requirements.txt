@@ -1,0 +1,13 @@
+pandas>=2.0
+requests>=2.31
+pyyaml>=6.0
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.13
+scikit-learn>=1.3
+
+# Optional — needed only for load_dataset(source='hf') with the datasets library
+# datasets>=2.14
+
+# Optional — needed only for scrape()
+# playwright>=1.40

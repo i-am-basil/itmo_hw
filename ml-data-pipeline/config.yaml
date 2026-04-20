@@ -1,0 +1,35 @@
+# ML Task: Binary Russian sentiment classification (neg / pos)
+# Two sources: HF Hub CSV (train) + HTTP CSV concat (dev + test)
+# Total target: 2000 rows (1000 + 1000)
+
+output:
+  path: data/raw/unified_dataset.csv
+  save: true
+
+sources:
+  # Source 1: HuggingFace Hub — train.csv (direct file download, no pyarrow needed)
+  - type: hf_dataset
+    loader: hub_csv
+    name: sepidmnorozy/Russian_sentiment
+    hf_file: train.csv
+    max_rows: 1000
+    text_column: text
+    label_column: label
+    source_id: hf:sepidmnorozy/Russian_sentiment:train
+    label_map:
+      "0": neg
+      "1": pos
+
+  # Source 2: HTTP API — dev.csv + test.csv concatenated
+  - type: api
+    api_kind: csv_http_concat
+    endpoints:
+      - https://huggingface.co/datasets/sepidmnorozy/Russian_sentiment/resolve/main/dev.csv
+      - https://huggingface.co/datasets/sepidmnorozy/Russian_sentiment/resolve/main/test.csv
+    max_rows: 1000
+    text_field: text
+    label_field: label
+    source_id: api:http:hf-hub:sepidmnorozy/Russian_sentiment:dev+test
+    label_map:
+      "0": neg
+      "1": pos
