@@ -4,10 +4,7 @@ venv/
 env/
 
 # Data (raw/processed — often large or sensitive)
-data/raw/
-data/processed/
-data/labeled/
-data/al/
+data/
 
 # Python
 __pycache__/
